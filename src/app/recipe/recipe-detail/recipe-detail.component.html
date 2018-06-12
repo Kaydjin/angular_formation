@@ -1,0 +1,37 @@
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image">
+        <img [src]="recipe.picture" alt="">
+      </div>
+      <mat-card-title>{{recipe.name}}</mat-card-title>
+      <mat-card-subtitle>&nbsp;</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{recipe.picture}}" alt="-">
+    <mat-card-content>
+      <p class="description">
+        {{recipe.description}}
+      </p>
+      <ul *ngIf="this.expanded">
+        <li *ngFor="let ingredient of recipe.ingredients">
+          {{ingredient.name}} Quantité:{{ingredient.quantity}} - Unit:{{ingredient.unit}}
+        </li>
+      </ul>
+      <ul *ngIf="this.expanded">
+        <li *ngFor="let instruction of recipe.instructions | strToArray">
+          {{instruction}}
+        </li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions *ngIf="this.expanded; else elseBlock">
+      <button mat-raised-button color="primary" (click)="cacherComposants()">Cacher composants</button>
+      <button mat-raised-button color="primary">DELETE</button>
+    </mat-card-actions>
+    <ng-template #elseBlock>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="voirComposants()">Voir composants</button>
+        <button mat-raised-button color="primary">DELETE</button>
+      </mat-card-actions>
+    </ng-template>
+  </mat-card>
+</div>
