@@ -18,7 +18,7 @@ import { RecipeModule } from './recipe/recipe.module';
     BrowserAnimationsModule, 
     CustomMaterialModule,
     AppRoutingModule,
-    RecipeModule
+    RecipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Recipe } from './recipe.model';
+import {RequestOptions} from '@angular/http';
 
 @Injectable({
   providedIn: 'root' //Avoid putting it in the config file.
@@ -17,5 +18,14 @@ export class RecipeService {
 
   getRecipe(id: string): Observable<Recipe> {
     return this.http.get<Recipe>(`${ this._baseUrl }/${ id }`);
+  }
+
+  addRecipe(recipe: Recipe): Observable<Recipe> {
+    console.log(recipe);
+    return this.http.post<Recipe>(this._baseUrl, recipe);
+  }
+
+  deleteRecipe(id: number): Observable<Object>  {
+    return this.http.delete(`${ this._baseUrl }/${ id }`);
   }
 }

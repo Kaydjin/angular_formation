@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RouterModule } from '@angular/router';
 import { RecipeFormulaireComponent } from './recipe-formulaire/recipe-formulaire.component';
+import { FormsModule } from '@angular/forms';
+import { OrderByPipe } from './recipes/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -15,13 +17,15 @@ import { RecipeFormulaireComponent } from './recipe-formulaire/recipe-formulaire
     StrToArrayPipe,
     RecipesComponent,
     RecipeDetailComponent,
-    RecipeFormulaireComponent
+    RecipeFormulaireComponent,
+    OrderByPipe
   ],
   imports: [
     CommonModule,
     RouterModule,
     CustomMaterialModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
 })

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
+import { Ingredient } from '../ingredient.model';
 
 @Component({
   selector: 'app-recipe-formulaire',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeFormulaireComponent implements OnInit {
 
-  constructor() { }
+  recipe: Recipe;
+  nbrIngredients: number;
+
+  constructor(private recipeService: RecipeService) {
+    this.nbrIngredients = 1;
+    this.recipe = new Recipe();
+    let ingredient = new Ingredient();
+    ingredient.ingredientId = 1;
+    ingredient.name = "Saucisse";
+    ingredient.quantity = 0;
+    ingredient.unit = "Portion";
+    ingredient.recipeId = 0;
+    this.recipe.ingredients = [ingredient];
+    this.recipe.instructions = '';
+  }
 
   ngOnInit() {
+  }
+
+  ajouter() {
+    this.recipeService.addRecipe(this.recipe).subscribe();
+  }
+
+  addFieldIngredient(){
+    this.nbrIngredients++;
+  }
+
+  removeFieldIngredient(){
+    this.nbrIngredients--;
   }
 
 }

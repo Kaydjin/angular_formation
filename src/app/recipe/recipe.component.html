@@ -9,5 +9,6 @@
 </mat-card-content>
   <mat-card-actions>
     <a mat-raised-button [routerLink]="[recipe.id]">VOIR DETAILS</a>
+    <button mat-raised-button (click)="delete()" color="primary">DELETE</button>
   </mat-card-actions>
 </mat-card>

@@ -1,3 +1,5 @@
-<div class="container">
-    <app-recipe *ngFor="let recipe of recipes" [recipe]="recipe"> </app-recipe>
+<div class="container" *ngIf="recipes">
+
+    <app-recipe *ngFor="let recipe of (recipes | orderBy)" [recipe]="recipe" (delete)="deleteRecipe(recipe)"></app-recipe>
+
 </div>

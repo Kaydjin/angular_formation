@@ -11,12 +11,12 @@ const routes: Routes = [
     component: RecipesComponent,
   },
   {
-    path: 'recipes/:id',
-    component: RecipeDetailComponent
-  },
-  {
     path: 'recipes/form',
     component: RecipeFormulaireComponent
+  },
+  {
+    path: 'recipes/:id',
+    component: RecipeDetailComponent
   },
   {
     path: '**',
