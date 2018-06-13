@@ -21,11 +21,15 @@ export class RecipeService {
   }
 
   addRecipe(recipe: Recipe): Observable<Recipe> {
-    console.log(recipe);
     return this.http.post<Recipe>(this._baseUrl, recipe);
   }
 
   deleteRecipe(id: number): Observable<Object>  {
     return this.http.delete(`${ this._baseUrl }/${ id }`);
+  }
+
+  updateRecipe(recipe: Recipe): Observable<Recipe>  {
+    console.log(recipe);
+    return this.http.patch<Recipe>(this._baseUrl, recipe);
   }
 }

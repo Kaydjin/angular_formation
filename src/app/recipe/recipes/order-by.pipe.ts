@@ -10,6 +10,8 @@ export class OrderByPipe implements PipeTransform {
   }
 
   compare(a: Recipe, b: Recipe) {
+    if(a.name == null) return -1;
+    if(b.name == null) return 1;
     return a.name.localeCompare(b.name);
   }
 

@@ -1,0 +1,41 @@
+<div class="container" *ngIf="recipeInitial">
+    <mat-card class="example-card">
+  
+      <mat-card-header>
+        <mat-card-title>MODIFIER UNE RECETTE</mat-card-title>
+      </mat-card-header>
+  
+      <mat-card-content>
+  
+        <form [formGroup]="updateForm">
+  
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput class="form-control" formControlName="name" placeholder="Name" value="{{recipeInitial.name}}">
+            </mat-form-field>
+          </div>
+          <img mat-card-image src="{{recipeInitial.picture}}" alt="-">
+
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput class="form-control" formControlName="picture" placeholder="Url image" value="{{recipeInitial.picture}}">
+            </mat-form-field>
+          </div>
+  
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Description" class="form-control" formControlName="description" value="{{recipeInitial.description}}"></textarea>
+            </mat-form-field>
+          </div>
+
+        </form>
+  
+      </mat-card-content>
+  
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="update()">MODIFIER</button>
+      </mat-card-actions>
+  
+    </mat-card>
+  
+  </div>
